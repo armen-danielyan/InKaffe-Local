@@ -1,0 +1,34 @@
+extends layout
+
+block content
+   h2 This is my test page
+   p #{title}
+   div
+      input(
+         id = "submitButton"
+         type = "button"
+         name = "submit"
+         value = "Button"
+      )
+   ul(
+      id = "filesList"
+   )
+   script.
+      $(document).ready(function(){
+         $("#submitButton").click(function(e){
+            e.preventDefault();
+            var data = {};
+            data.getFiles = "list";
+            $.ajax({
+               type: 'POST',
+               data: JSON.stringify(data),
+               contentType: 'application/json',
+               url: window.location.pathname,
+               success: function(data) {
+                  $.each(data, function (index, value) {
+                     $('#filesList').append("<li>" + index + ": " + value + "</li>");
+                  });
+               }
+            });
+         });
+      });
