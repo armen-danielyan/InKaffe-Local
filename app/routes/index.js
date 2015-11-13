@@ -8,14 +8,7 @@ var conn = mysql.createConnection({
   user     : 'root',
   password : ''
 });
-conn.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  } else {
-    console.log('connected as id ' + conn.threadId);
-  }
-});
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
