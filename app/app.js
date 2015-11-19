@@ -12,6 +12,7 @@ var users = require('./routes/users');
 var mediafiles = require('./routes/mediafiles');
 var chat = require('./routes/chat');
 
+
 var app = express();
 
 /*Create mysql connection*/

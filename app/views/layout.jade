@@ -7,6 +7,7 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
     script(src="https://cdn.socket.io/socket.io-1.2.0.js")
+    script(src="http://jplayer.org/latest/dist/jplayer/jquery.jplayer.min.js")
     link(rel="stylesheet", href="/stylesheets/style.css")
 
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==", crossorigin="anonymous")
@@ -14,3 +15,23 @@ html
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js", integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==", crossorigin="anonymous")
   body
     block content
+    script.
+      $(document).ready(function() {
+        $("#jquery_jplayer_1").jPlayer({
+          ready: function(event) {
+            $(this).jPlayer("setMedia", {
+              title: "Bubble",
+              mp3: "mp3/123.mp3"
+            });
+          },
+          swfPath: "http://jplayer.org/latest/dist/jplayer",
+          supplied: "mp3, oga",
+          wmode: "window",
+          useStateClassSkin: true,
+          autoBlur: false,
+          smoothPlayBar: true,
+          keyEnabled: true,
+          remainingDuration: true,
+          toggleDuration: true
+        });
+      });
